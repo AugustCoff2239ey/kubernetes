@@ -103,9 +103,15 @@ git merge upstream/main
 > **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after syncing is a good habit to catch any breaking changes early. I also run `make test WHAT=./pkg/scheduler/...` after syncing since that's the area I'm most actively experimenting with.
 >
 > **Tip:** If `make verify` fails after a sync due to generated file drift, running `make update` first usually fixes it before re-running `make verify`.
+>
+> **Tip:** To speed up local builds during development, `make WHAT=cmd/kube-scheduler` builds only the scheduler binary instead of the entire project — much faster for iterating on scheduler changes.
 
-## Review Process
+## Local Dev Aliases
 
-- All PRs require at least one approval from a maintainer listed in [OWNERS](.github/OWNERS)
-- CI checks must pass before merging
-- Large changes should be broken into smaller, focused PRs when possible
+A few shell aliases I keep in my `.bashrc` to make day-to-day work in this repo faster:
+
+```bash
+alias kbuild='make WHAT=cmd/kube-scheduler'
+alias ktest='make test WHAT=./pkg/scheduler/...'
+alias ksync='git fetch upstream && git checkout main && git merge upstream/main'
+```
