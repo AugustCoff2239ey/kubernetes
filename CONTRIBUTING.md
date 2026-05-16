@@ -100,6 +100,8 @@ git checkout main
 git merge upstream/main
 ```
 
+> **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after syncing is a good habit to catch any breaking changes early.
+
 ## Review Process
 
 - All PRs require at least one approval from a maintainer listed in [OWNERS](.github/OWNERS)
