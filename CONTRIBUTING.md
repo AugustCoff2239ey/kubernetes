@@ -82,6 +82,14 @@ Use the **Enhancement** issue template. Describe:
 
 6. Push your branch and open a Pull Request.
 
+> **Personal note:** Before pushing, I also like to run a quick focused e2e smoke test against a local kind cluster:
+> ```bash
+> kind create cluster --name k8s-dev
+> make test-e2e FOCUS="\[Conformance\]" KUBECONFIG=~/.kube/config
+> kind delete cluster --name k8s-dev
+> ```
+> This catches integration-level issues that unit tests alone sometimes miss.
+
 ## Coding Conventions
 
 - Follow the [Kubernetes coding conventions](https://github.com/kubernetes/community/blob/master/contributors/guide/coding-conventions.md)
@@ -104,9 +112,4 @@ git merge upstream/main
 >
 > **Tip:** If `make verify` fails after a sync due to generated file drift, running `make update` first usually fixes it before re-running `make verify`.
 >
-> **Tip:** To speed up local builds during development, you can build only the component you're working on instead of the whole project. For example, to build just the scheduler:
-> ```bash
-> make WHAT=cmd/kube-scheduler
-> ```
-> This is much faster than `make all` when you're iterating quickly on a single component.
 >
