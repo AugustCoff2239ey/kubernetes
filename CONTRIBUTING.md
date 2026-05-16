@@ -101,13 +101,11 @@ git merge upstream/main
 ```
 
 > **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after syncing is a good habit to catch any breaking changes early. I also run `make test WHAT=./pkg/scheduler/...` after syncing since that's the area I'm most actively experimenting with.
+>
+> **Tip:** If `make verify` fails after a sync due to generated file drift, running `make update` first usually fixes it before re-running `make verify`.
 
 ## Review Process
 
 - All PRs require at least one approval from a maintainer listed in [OWNERS](.github/OWNERS)
 - CI checks must pass before merging
-- Large changes may require additional review time
-
-## Questions?
-
-Feel free to open a [Discussion](../../discussions) or reach out
+- Large changes should be broken into smaller, focused PRs when possible
