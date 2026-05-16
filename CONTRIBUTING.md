@@ -104,14 +104,9 @@ git merge upstream/main
 >
 > **Tip:** If `make verify` fails after a sync due to generated file drift, running `make update` first usually fixes it before re-running `make verify`.
 >
-> **Tip:** To speed up local builds during development, `make WHAT=cmd/kube-scheduler` builds only the scheduler binary instead of the entire project — much faster for iterating on scheduler changes.
-
-## Local Dev Aliases
-
-A few shell aliases I keep in my `.bashrc` to make day-to-day work in this repo faster:
-
-```bash
-alias kbuild='make WHAT=cmd/kube-scheduler'
-alias ktest='make test WHAT=./pkg/scheduler/...'
-alias ksync='git fetch upstream && git checkout main && git merge upstream/main'
-```
+> **Tip:** To speed up iterative builds during local development, you can build only the component you're working on instead of the whole project. For example, to build just the scheduler:
+> ```bash
+> make WHAT=cmd/kube-scheduler
+> ```
+> This is much faster than `make all` when you're only changing scheduler code.
+>
