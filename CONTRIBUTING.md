@@ -100,7 +100,7 @@ git checkout main
 git merge upstream/main
 ```
 
-> **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after syncing is a good habit to catch any breaking changes early.
+> **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after syncing is a good habit to catch any breaking changes early. I also run `make test WHAT=./pkg/scheduler/...` after syncing since that's the area I'm most actively experimenting with.
 
 ## Review Process
 
@@ -110,4 +110,4 @@ git merge upstream/main
 
 ## Questions?
 
-Feel free to open a [Discussion](../../discussions) or reach out to the maintainers listed in `.github/OWNERS`.
+Feel free to open a [Discussion](../../discussions) or reach out
