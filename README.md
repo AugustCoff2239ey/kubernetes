@@ -85,8 +85,10 @@ To pull in the latest changes from the upstream repository:
 ```bash
 git remote add upstream https://github.com/kubernetes/kubernetes.git
 git fetch upstream
-git merge upstream/master
+git merge upstream/main
 ```
+
+> **Note:** The upstream default branch was renamed from `master` to `main`. Updated the merge command accordingly.
 
 ## License
 
