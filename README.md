@@ -90,6 +90,8 @@ git merge upstream/main
 
 > **Note:** The upstream default branch was renamed from `master` to `main`. Updated the merge command accordingly.
 
+> **Personal note:** I prefer rebasing over merging to keep a cleaner local history. Use `git rebase upstream/main` instead if you want a linear commit log.
+
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE) for details.
