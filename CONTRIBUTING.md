@@ -108,4 +108,4 @@ git checkout main
 git merge upstream/main
 ```
 
-> **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after a sync is a good habit — it quickly surfaces any broken generated files or vendor inconsistencies introduced by the merge.
+> **Personal note:** I try to sync with upstream at least once a week to avoid large, painful merge conflicts. Running `make verify` after merging is a good habit — it catches any generated file drift (e.g. from `hack/update-codegen.sh`) before you start new work on top of the merge.
